@@ -1,7 +1,14 @@
-# cmscve_test
-# 0x01 vulnerability description
-The rapid development of JreCMS, dynamic addition of fields, custom tags, dynamic creation of database tables and crud data, database backup and recovery, dynamic addition of sites (multi-site function), one-click generation of template code, so that you can easily open to build your own independent website, but also easy to secondary development, so that you can quickly build a personalized independent website. Background functions include: global configuration (configuration parameters, model management) Basic content (website information, company information, content columns) Content management (content data, label management) Expanded content (message information, rotating pictures, links, custom forms, custom data) Public number management (wechat menu) System management (website management, system roles, system users, system users, system information, etc.) Database management, template management, JreCMS foreground message can be embedded malicious code saved in the database. When users browse the comments, these malicious codes embedded in the HTML will be executed, and the user's browser will be controlled by the attacker, so as to achieve the special purpose of the attacker, such as cookie theft. Hole address: http://ip:8888/guestbook code download address: https://gitee.com/heyewei/SpringBootCMS.git hole location: a message fill out malicious JavaScript code submitted. Browsing messages in the foreground and background are both triggering malicious code content.
-# 0x02 exploit
+# The name of an affected Product.
+Springboot version of JFinalcms or SpringbootCMS
+# The affected or fixed version(s).
+SpringbootCMS 1.0
+# The CVE ID for the entry
+CVE-2023-43191
+# A prose description
+JFinalCMS foreground message can be embedded malicious code saved in the database. When users browse the comments, these malicious codes embedded in the HTML will be executed, and the user's browser will be controlled by the attacker, so as to achieve the special purpose of the attacker, such as cookie theft
+# Other supplement
+Hole address: http://ip:8888/guestbook code download address: https://gitee.com/heyewei/SpringBootCMS.git hole location: a message fill out malicious JavaScript code submitted. Browsing messages in the foreground and background are both triggering malicious code content.
+# Exploit
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/21570886/1694499385096-4a71947c-5646-4591-8662-41bc6675f8eb.png#averageHue=%23ece1b8&clientId=ua4912bdd-475e-4&from=paste&height=840&id=ub9ed8555&originHeight=963&originWidth=1760&originalType=binary&ratio=1.1458333730697632&rotation=0&showTitle=false&size=83457&status=done&style=none&taskId=u32ef587e-5cc2-445d-9bec-5cf3edd867f&title=&width=1535.9999467329565)
 Enter malicious content after submission
@@ -16,11 +23,11 @@ http://ip:port/guestbook?pageNumber=0
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/21570886/1694500345693-fe981bc2-da38-4f21-a67f-18e090d14d49.png#averageHue=%23fefefe&clientId=ua4912bdd-475e-4&from=paste&height=841&id=u3c6780d4&originHeight=964&originWidth=1561&originalType=binary&ratio=1.1458333730697632&rotation=0&showTitle=false&size=19209&status=done&style=none&taskId=u59c325ba-3cdf-49bb-9f28-276454bf2c9&title=&width=1362.327225483037)
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/21570886/1694500360720-efb04306-594d-4a57-9977-69a8e96cf5ac.png#averageHue=%23d6bf95&clientId=ua4912bdd-475e-4&from=paste&height=860&id=u11d3c8fa&originHeight=985&originWidth=1664&originalType=binary&ratio=1.1458333730697632&rotation=0&showTitle=false&size=166465&status=done&style=none&taskId=ufae45125-95b2-48b3-954f-4c1e3afa0e6&title=&width=1452.2181314566133)
 
-# 0x03 repair suggestion
+# Repair suggestion
 To avoid storage XSS attacks, you are advised to defend against them in the following ways:
 1. Perform reasonable verification of untrustworthy data obtained from databases or other back-end data stores (such as age can only be a number), filter special characters (such as' <, >, ', "' and '<script>, javascript', etc.).
 2. Output code all untrusted data appropriately, depending on where the data will be placed in the HTML context (HTML tags, HTML attributes, JavaScript scripts, CSS, urls).
-# 0x04 Website source code
+# Website source code
 The front-end file is   src/main/webapp/templates/default/guestbook.html
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/21570886/1694501755736-d3a6df3f-8f2c-4941-9e02-a66d38c8eaf5.png#averageHue=%232d2c2b&clientId=ua4912bdd-475e-4&from=paste&height=688&id=pY8KL&originHeight=788&originWidth=1205&originalType=binary&ratio=1.1458333730697632&rotation=0&showTitle=false&size=102067&status=done&style=none&taskId=u623d7c15-069e-4a75-949f-5c0f26328c8&title=&width=1051.636327166598)
 
