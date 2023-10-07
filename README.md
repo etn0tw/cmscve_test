@@ -1,13 +1,15 @@
 # The name of an affected Product.
-Springboot version of JFinalcms or SpringbootCMS
+SpringbootCMS
 # The affected or fixed version(s).
 SpringbootCMS 1.0
 # The CVE ID for the entry
 CVE-2023-43191
 # A prose description
-JFinalCMS foreground message can be embedded malicious code saved in the database. When users browse the comments, these malicious codes embedded in the HTML will be executed, and the user's browser will be controlled by the attacker, so as to achieve the special purpose of the attacker, such as cookie theft
+SpringbootCMS foreground message can be embedded malicious code saved in the database. When users browse the comments, these malicious codes embedded in the HTML will be executed, and the user's browser will be controlled by the attacker, so as to achieve the special purpose of the attacker, such as cookie theft
 # Other supplement
-Hole address: http://ip:8888/guestbook code download address: https://gitee.com/heyewei/SpringBootCMS.git hole location: a message fill out malicious JavaScript code submitted. Browsing messages in the foreground and background are both triggering malicious code content.
+Hole address: http://ip:8888/guestbook
+The code download address: [https://gitee.com/heyewei/SpringBootCMS.git](https://gitee.com/heyewei/SpringBootCMS.git)
+Vulnerability location: After logging in to the system, the custom data of the expanded content, the location of the customer name at the time of creation has sql time blind annotation.
 # Exploit
 
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/21570886/1694499385096-4a71947c-5646-4591-8662-41bc6675f8eb.png#averageHue=%23ece1b8&clientId=ua4912bdd-475e-4&from=paste&height=840&id=ub9ed8555&originHeight=963&originWidth=1760&originalType=binary&ratio=1.1458333730697632&rotation=0&showTitle=false&size=83457&status=done&style=none&taskId=u32ef587e-5cc2-445d-9bec-5cf3edd867f&title=&width=1535.9999467329565)
